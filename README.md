@@ -1,2 +1,2 @@
-# Wallfeed UI
-Wallfeed's UI components
+# Afrihost Code Camp UI
+All the front endy stuff
