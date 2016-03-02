@@ -1,0 +1,31 @@
+{
+  "name": "AfrihostCodeCamp",
+  "description": "A dev initiative",
+  "main": "index.js",
+  "authors": [
+    "John Kosmetos"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "angular",
+    "javascript"
+  ],
+  "moduleType": [],
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.7",
+    "angular-ui-router": "~0.2.15",
+    "angular-localforage": "~1.2.5",
+    "lodash": "~3.10.1"
+  },
+  "devDependencies": {
+  }
+}

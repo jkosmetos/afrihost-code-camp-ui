@@ -1,0 +1,26 @@
+<main>
+    <form name="form">
+
+        <label for="first_name" class="form_field">
+            <input type="text" name="first_name" id="first_name" data-ng-model="registerForm.first_name" placeholder="First Name" required />
+        </label>
+        <label for="last_name" class="form_field">
+            <input type="text" name="last_name" id="last_name" data-ng-model="registerForm.last_name" placeholder="Last Name" required />
+        </label>
+        <label for="username" class="form_field">
+            <input type="text" name="username" id="username" data-ng-model="registerForm.username" placeholder="Username" required />
+        </label>
+        <label for="email_address" class="form_field">
+            <input type="email" name="email_address" id="email_address" data-ng-model="registerForm.email_address" placeholder="Email" required />
+        </label>
+        <label for="password" class="form_field">
+            <input type="password" name="password" id="password" data-ng-model="registerForm.password" placeholder="Password" required />
+        </label>
+        <label for="password_confirm" class="form_field">
+            <input type="password" name="password_confirm" id="password_confirm" data-ng-model="registerForm.password_confirm" placeholder="Confirm password" required />
+        </label>
+
+        <button data-ng-click="register(form)">Register</button>
+
+    </form>
+</main>

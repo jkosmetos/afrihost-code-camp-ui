@@ -1,0 +1,19 @@
+{
+  "name": "AfrihostCodeCamp",
+  "version": "1.0.0",
+  "description": "A dev initiative",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "John Kosmetos",
+  "license": "MIT",
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-sass": "^2.1.1",
+    "gulp-util": "^3.0.7",
+    "browser-sync": "^2.11.0",
+    "del": "^2.2.0"
+  }
+}
