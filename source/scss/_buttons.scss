@@ -1,0 +1,123 @@
+.btn {
+    display: inline-block;
+    height: 40px;
+    font: 1.4em/38px $font-semi;
+    background: $grey;
+    color: #fff;
+    padding: 0px 25px;
+    transition: all 0.2s ease;
+    border-radius: 20px;
+    text-transform: uppercase;
+
+    &.primary   { background: $blue; }
+    &.white     { background: #fff; color: $blue; }
+
+    &:hover {
+        background: darken($grey, 10);
+
+        &.primary   { background: darken($blue, 10); }
+        &.white     { background: #fff; color: darken($blue, 10); }
+    }
+
+    &.loading {
+        position: relative;
+        color: rgba(255, 255, 255, 0);
+
+        &:before,
+        &:after {
+            content: '';
+            display: block;
+            border-radius: 50%;
+            border: 1px solid #fff;
+            width: 30px;
+            height: 30px;
+            @include position(absolute, 50% null null 50%);
+            width: 20px;
+            height: 20px;
+            margin-left: -10px;
+            margin-top: -10px;
+            opacity: 0;
+
+            animation-name: pulse;
+            animation-duration: 1.5s;
+            animation-timing-function: ease-in-out;
+            animation-iteration-count: infinite;
+        }
+
+        &:after {
+            animation-delay: 0.5s;
+            width: 18px;
+            height: 18px;
+            margin-left: -9px;
+            margin-top: -9px;
+        }
+    }
+
+    &.ghost {
+        background: transparent;
+        border: 1px solid $grey;
+        color: $grey;
+
+        &.primary   { color: $blue; border-color: $blue; }
+        &.white     { color: #fff; border-color: #fff; }
+
+        &:hover {
+            border: 1px solid darken($grey, 10);
+            color: darken($grey, 10);
+            background: transparent;
+
+            &.primary   { color: #fff; background: $blue; border-color: $blue; }
+            &.white     { color: #fff; border-color: #fff; }
+        }
+    }
+}
+
+@keyframes spinMeLeft {
+
+    0% {
+        transform: none;
+    }
+
+    50% {
+        transform: rotate(-180deg);
+    }
+
+    100% {
+        transform: none;
+    }
+
+}
+
+@keyframes spinMeRight {
+
+    0% {
+        transform: none;
+    }
+
+    50% {
+        transform: rotate(180deg);
+    }
+
+    100% {
+        transform: none;
+    }
+
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(0);
+        opacity: 1;
+        //border: 1px solid #fff;
+    }
+
+    50% {
+        transform: scale(1.4);
+        opacity: 0.4;
+    }
+
+    100% {
+        transform: scale(1.6);
+        opacity: 0;
+    }
+}

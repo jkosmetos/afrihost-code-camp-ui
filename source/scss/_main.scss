@@ -1,6 +1,223 @@
-body, html {
-  height: 100%;
-  width: 100%;
-  margin: 0;
-  padding: 0;
+main {
+    width: 1000px;
+    margin: 0px auto 60px;
+
+    &.skinny {
+        width: 680px;
+        position: relative;
+        left: -150px;
+    }
+}
+
+.white-box {
+    background: #fff;
+    padding: 60px;
+    margin-bottom: 20px;
+    position: relative;
+    @include clearfix();
+
+    &:before {
+        content: '';
+        display: block;
+        height: 2px;
+        width: 100%;
+        background: linear-gradient(to left, #1867B3, #4AD0E8);
+        @include position(absolute, null 0px 0px);
+    }
+
+    &.right-hero {
+        padding-right: 440px;
+
+        .hero {
+            display: block;
+            width: 200px;
+            height: 200px;
+            font-size: 200px;
+            @include position(absolute, 50% 120px null null);
+            margin-top: -100px;
+            color: #F2F2F2;
+        }
+    }
+}
+
+.session-holder {
+    position: relative;
+
+    .session {
+        margin-bottom: 60px;
+        padding-left: 85px;
+        position: relative;
+        padding-top: 13px;
+
+        &:before {
+            content: '';
+            display: block;
+            width: 2px;
+            @include position(absolute, 48px null -45px 22px);
+            background: #e1e1e1;
+        }
+
+        &:after {
+            content: '';
+            display: block;
+            width: 25px;
+            height: 2px;
+            @include position(absolute, 25px null null 46px);
+            background: #e1e1e1;
+            transition: all 0.2s ease;
+        }
+
+        .session-date {
+            @include position(absolute, 0px null null 0px);
+            display: block;
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            padding-top: 16px;
+            color: #e1e1e1;
+            transition: transform 0.15s ease-in-out;
+            transition: all 0.2s ease;
+
+            &:before {
+                font-size: 50px;
+                position: absolute;
+                left: 50%;
+                top: 0px;
+                margin-left: -25px;
+            }
+
+            dt {
+                font: 1.8em $font-bold;
+                line-height: 18px;
+                margin-bottom: 0px;
+                letter-spacing: 1px;
+            }
+
+            dd {
+                font: 11px/11px $font-bold;
+                text-transform: uppercase;
+                margin-top: -2px;
+            }
+        }
+
+        &:hover:not(.past) {
+
+            &:after {
+                background: $blue;
+            }
+
+            .session-date {
+                color: $blue;
+                transform: scale(1.05);
+            }
+        }
+
+        p {
+            max-width: 440px;
+        }
+
+        a {
+            margin-top: 20px;
+        }
+
+        .session-footer {
+            @include clearfix();
+        }
+
+        &.past {
+            h3 {
+                color: $grey;
+            }
+        }
+    }
+
+    .session-speaker {
+        height: 50px;
+        margin-top: 10px;
+        position: relative;
+        padding-left: 65px;
+        margin-bottom: 20px;
+
+        dt {
+            font: 1.2em/15px $font-bold;
+            color: lighten($asphalt, 20);
+            color: $grey-dark;
+            text-transform: uppercase;
+            display: block;
+            padding-top: 13px;
+        }
+
+        dd {
+            font: 1.2em $font-regular;
+            color: $grey;
+            display: block;
+        }
+    }
+
+    .speaker-photo {
+        display: block;
+        width: 50px;
+        height: 50px;
+        filter: grayscale(1);
+        @include position(absolute, 0px null null 0px);
+
+        img {
+            display: block;
+            border-radius: 50%;
+        }
+    }
+}
+
+section {
+    counter-reset: question-counter;
+}
+
+.question-holder {
+    margin-bottom: 50px;
+
+    .question {
+        position: relative;
+        margin-bottom: 20px;
+
+        &:before {
+        	content: counter(question-counter);
+        	counter-increment: question-counter;
+            font: 65px $font-bold;
+            color: #F2F2F2;
+            @include position(absolute, -30px null null -30px);
+            z-index: 1;
+        }
+
+        dt {
+            font: 1.8em/22px $font-semi;
+            color: $blue;
+            z-index: 10;
+            position: relative;
+        }
+
+        dd {
+            font: 1.1em $font-bold;
+            color: $grey-dark;
+            text-transform: uppercase;
+            z-index: 10;
+            position: relative;
+        }
+    }
+
+    .answer {
+        position: relative;
+        padding-bottom: 40px;
+
+        p {
+            max-width: 75%;
+        }
+
+        &:after {
+            content: '';
+            display: block;
+            background: lighten($grey, 20);
+            height: 2px;
+            @include position(absolute, null 20% 0px);
+        }
+    }
 }

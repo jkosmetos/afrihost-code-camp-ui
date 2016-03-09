@@ -8,11 +8,14 @@
         var self = {};
         var collection = 'user';
 
-        self.create = function (username, password, remember, token) {
+        self.create = function (username, password, roles, remember, token) {
+
+            console.log('TEH ROLES!', roles);
 
             var user = {
                 username: username,
                 password: ( remember ? password : '' ),
+                roles: roles,
                 token: token,
                 remember: remember
             };
@@ -55,6 +58,14 @@
 
             return $localForage.getItem(collection).then(function(user){
                 return (_.isEmpty(user) ? '' : user.token);
+            });
+
+        };
+
+        self.getRoles = function () {
+
+            return $localForage.getItem(collection).then(function(user){
+                return (_.isEmpty(user) ? '' : user.roles);
             });
 
         };

@@ -1,0 +1,127 @@
+#form-login {
+    @include position(absolute, 0px);
+    @include ghost();
+    text-align: center;
+
+    .form-inner {
+        position: relative;
+        display: inline-block;
+        vertical-align: middle;
+        width: 500px;
+        background: #fff;
+        padding: 60px 50px;
+
+        .logo {
+            @include position(absolute, -100px null null 50%);
+            display: block;
+            width: 70px;
+            height: 70px;
+            font-size: 70px;
+            color: $blue;
+            margin-left: -35px;
+
+            // &:before {
+            //     background: linear-gradient(to top, #1867B3, #4AD0E8);
+            //     -webkit-background-clip: text;
+            // }
+        }
+
+        p {
+            font: 2em $font-bold;
+            color: $blue;
+            text-transform: uppercase;
+
+            &:first-of-type {
+                margin-bottom: 40px;
+            }
+        }
+
+        label {
+            display: block;
+            height: 50px;
+            margin-bottom: 10px;
+            width: 100%;
+            position: relative;
+
+            input {
+                display: block;
+                height: 50px;
+                width: 100%;
+                font: 1.4em $font-semi;
+                color: #C1C5C7;
+                padding: 0px 10px;
+                border-bottom: 1px solid #F0F3F5;
+                transition: all 0.2s ease;
+            }
+
+            .stripe {
+                display: block;
+                height: 1px;
+                @include position(absolute, null 100% 0px 0px);
+                background: $blue;
+                transition: all 0.2s ease;
+            }
+
+            input:focus {
+                color: $grey-dark;
+
+                + .stripe {
+                    right: 0%;
+                }
+            }
+
+            input:-webkit-autofill {
+                -webkit-box-shadow: 0 0 0px 1000px white inset;
+                -webkit-text-fill-color: #C1C5C7 !important;
+            }
+        }
+
+        .form-actions {
+            display: block;
+            @include clearfix();
+            margin: 30px 0px 20px;
+
+            .texty {
+                font: 1.3em/40px $font-semi;
+                color: #414B54;
+            }
+
+            .btn {
+                padding: 0px 30px;
+                position: relative;
+
+                &:before,
+                &:after {
+                    content: 'LOGIN';
+                    display: block;
+                    @include position(absolute, 0px);
+                    background: linear-gradient(to left, #1867B3, #4AD0E8);
+                    transition: all 0.2s ease;
+                    border-radius: 20px;
+                }
+
+                &:after {
+                    background: linear-gradient(to left, darken(#1867B3, 10), darken(#4AD0E8, 10));
+                    opacity: 0;
+                }
+
+                &:hover:after {
+                    opacity: 1;
+                }
+            }
+
+        }
+
+        .message {
+            font: 1.4em $font-bold;
+            color: #F38C3C;
+            text-transform: none;
+            opacity: 0;
+            transition: all 0.2s ease;
+
+            &.show {
+                opacity: 1;
+            }
+        }
+    }
+}

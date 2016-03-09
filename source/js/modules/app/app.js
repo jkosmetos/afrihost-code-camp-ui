@@ -4,7 +4,7 @@
     // Bootstrap angular when ready
     angular.element(document).ready(function() {
 
-        angular.module('app', [ 'ui.router', 'LocalForageModule', 'app.config', 'auth.config', 'user.config']);
+        angular.module('app', [ 'ui.router', 'LocalForageModule', 'angularMoment', 'app.config', 'auth.config', 'user.config', 'workshop.config']);
 
         angular.bootstrap(document, ['app']);
 

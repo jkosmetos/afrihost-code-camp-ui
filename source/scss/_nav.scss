@@ -1,0 +1,41 @@
+nav {
+    height: 90px;
+    @include clearfix();
+    background: $asphalt;
+    margin-bottom: 60px;
+
+    &.stripey {
+        height: 4px;
+        background: linear-gradient(-45deg, #1867B3, #4AD0E8);
+    }
+
+    .logo {
+        width: 90px;
+        height: 90px;
+        display: block;
+        background: $asphalt-dark;
+        transition: all 0.2s ease;
+        font-size: 42px;
+        text-align: center;
+        color: #fff;
+        position: relative;
+
+        &:before {
+            display: block;
+            width: 42px;
+            height: 42px;
+            @include position(absolute, 50% null null 50%);
+            margin-top: -21px;
+            margin-left: -21px;
+            transition: all 0.2s ease;
+        }
+
+        &:hover:before {
+            transform: scale(1.1);
+        }
+    }
+
+    .logout {
+        margin: 25px;
+    }
+}

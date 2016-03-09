@@ -3,6 +3,7 @@ var browserSync = require('browser-sync').create();
 var sass        = require('gulp-sass');
 var concat      = require('gulp-concat');
 var del         = require('del');
+var autoprefixer = require('gulp-autoprefixer');
 
 // Define all of the paths I'll be using
 var paths = {
@@ -14,6 +15,8 @@ var paths = {
             "bower_components/localforage/dist/localforage.js",
             "bower_components/angular-localforage/dist/angular-localForage.js",
             "bower_components/angular-ui-router/release/angular-ui-router.js",
+            "bower_components/moment/moment.js",
+            "bower_components/angular-moment/angular-moment.js",
             "bower_components/lodash/lodash.js",
 
             // App
@@ -27,18 +30,22 @@ var paths = {
         ],
         fonts: [
             "source/fonts/*"
+        ],
+        images: [
+            "source/images/**/*"
         ]
     },
     output: {
         scripts: "www/js",
         styles: "www/css",
         templates: "www/",
-        fonts: "www/fonts"
+        fonts: "www/fonts",
+        images: "www/images"
     }
 };
 
 // Static Server + watching scss/html files
-gulp.task('serve', ['clean', 'styles', 'scripts', 'fonts', 'templates', 'watch'], function() {
+gulp.task('serve', ['clean', 'styles', 'scripts', 'fonts', 'images', 'templates', 'watch'], function() {
 
     browserSync.init({
         server: "./www"
@@ -50,6 +57,7 @@ gulp.task('serve', ['clean', 'styles', 'scripts', 'fonts', 'templates', 'watch']
 gulp.task('styles', function() {
     return gulp.src(paths.input.styles)
         .pipe(sass())
+        .pipe(autoprefixer())
         .pipe(gulp.dest(paths.output.styles))
         .pipe(browserSync.stream());
 });
@@ -66,6 +74,12 @@ gulp.task('scripts', function() {
 gulp.task('templates', function() {
     return gulp.src(paths.input.templates)
         .pipe(gulp.dest(paths.output.templates))
+});
+
+// Images
+gulp.task('images', function() {
+    return gulp.src(paths.input.images)
+        .pipe(gulp.dest(paths.output.images))
 });
 
 // Copying fonts

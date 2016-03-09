@@ -9,14 +9,22 @@
 
             .state('app.login', {
                 url: '/login',
-                templateUrl: CONFIG.base_url + '/auth/views/login.html',
-                controller: 'LoginController'
+                views: {
+                    'main@app': {
+                        templateUrl: CONFIG.base_url + '/auth/views/login.html',
+                        controller: 'LoginController'
+                    }
+                }
             })
 
             .state('app.register', {
                 url: '/register',
-                templateUrl: CONFIG.base_url + '/auth/views/register.html',
-                controller: 'RegisterController'
+                views: {
+                    'main@app': {
+                        templateUrl: CONFIG.base_url + '/auth/views/register.html',
+                        controller: 'RegisterController'
+                    }
+                }
             });
 
     }]);

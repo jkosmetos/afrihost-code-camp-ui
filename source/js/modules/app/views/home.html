@@ -1,1 +1,81 @@
-<h1>Home</h1>
+<header class="dark">
+    <span class="icon di di-icn-logo"></span>
+    <h1>Afrihost Code Camp</h1>
+    <p>Learn the in's and out's of what happens behind the scenes when developing online systems.</p>
+</header>
+
+<div class="section-holder">
+    <div class="inner">
+        <h2>Workshop Agenda</h2>
+        <p>All the talks and workshops that will be covered in this Code Camp.</p>
+
+        <div class="workshop" data-ng-repeat="workshop in workshops">
+            <div class="workshop-image di di-icn-logo">
+                <span class="di" data-ng-class="workshop.icon_class"></span>
+            </div>
+            <dl>
+                <span class="di" data-ng-class="workshop.icon_class"></span>
+                <dt>{{ workshop.title }}</dt>
+                <dd>{{ workshop.starts_at | amDateFormat: 'DD MMM YYYY' }}</dd>
+                <a href="#" class="btn primary" data-ui-sref="app.workshops">View More</a>
+            </dl>
+        </div><!-- end.workshop -->
+
+    </div>
+</div><!-- end.section-holder -->
+
+
+<div class="big-quote">
+    <dl>
+        <dt>“First, solve the problem. Then, write the code.”</dt>
+        <dd>- John Johnson</dd>
+    </dl>
+</div><!-- end.big-quote -->
+
+<div class="section-holder white">
+    <div class="inner">
+        <h2>Workshop Speakers</h2>
+        <p>Learn from Afrihost's very own developer team. Each speaker will be covering different topics in the big process.</p>
+
+        <dl class="speaker">
+            <span class="speaker-photo"><img src="images/speakers/sacheen.jpg" /></span>
+            <dt>Sacheen Dhanjie</dt>
+            <dd>Dev Team</dd>
+        </dl>
+        <dl class="speaker">
+            <span class="speaker-photo"><img src="images/speakers/john.jpg" /></span>
+            <dt>John Kosmetos</dt>
+            <dd>Dev Team</dd>
+        </dl>
+        <dl class="speaker">
+            <span class="speaker-photo"><img src="images/speakers/sarel.jpg" /></span>
+            <dt>Sarel Van Der Walt</dt>
+            <dd>Dev Team</dd>
+        </dl>
+        <dl class="speaker">
+            <span class="speaker-photo"><img src="images/speakers/johnathan.jpg" /></span>
+            <dt>Johnathan Dell</dt>
+            <dd>Dev Team</dd>
+        </dl>
+        <dl class="speaker">
+            <span class="speaker-photo"><img src="images/speakers/brad.jpg" /></span>
+            <dt>Brad Mostert</dt>
+            <dd>Dev Team</dd>
+        </dl>
+        <dl class="speaker">
+            <span class="speaker-photo"><img src="images/speakers/gavin.jpg" /></span>
+            <dt>Gavin McLeland</dt>
+            <dd>Brand Team</dd>
+        </dl>
+        <dl class="speaker">
+            <span class="speaker-photo"><img src="images/speakers/lee.jpg" /></span>
+            <dt>Lee Pelser</dt>
+            <dd>Dev Team</dd>
+        </dl>
+        <dl class="speaker">
+            <span class="speaker-photo"><img src="images/speakers/dale.jpg" /></span>
+            <dt>Dale Attree</dt>
+            <dd>Dev Team</dd>
+        </dl>
+    </div>
+</div>

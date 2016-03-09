@@ -3,7 +3,7 @@
 
     var authController = angular.module('auth.controller', []);
 
-    authController.controller('LoginController', ['$state', '$scope', 'AuthFactory', 'UserFactory', function ($state, $scope, AuthFactory, UserFactory) {
+    authController.controller('LoginController', ['$rootScope', '$scope', '$state', 'AuthFactory', 'UserFactory', function ($rootScope, $scope, $state, AuthFactory, UserFactory) {
 
         $scope.loginForm = {};
 
@@ -11,7 +11,7 @@
 
             if(form.$invalid) {
 
-                alert('invalid form');
+                alert('Form invalid, please try again.');
 
                 return false;
             }
@@ -21,22 +21,19 @@
                 if(data.hasOwnProperty('token')) {
                     // save the User object
 
+                    console.log('Submitted: ', data);
+
                     // TODO store 'remember me' and make it function correctly
-                    UserFactory.create($scope.loginForm._username, $scope.loginForm._password, false, data.token).then(function(){
-                        // do some stuff
+                    UserFactory.create($scope.loginForm._username, $scope.loginForm._password, data.user.roles, false, data.token).then(function(){
+
+                        $state.go('app.home');
+
                     });
 
                 }
             });
+
         };
-
-        $scope.logout = function () {
-
-            AuthFactory.logout().then(function(data) {
-                // do some stuff
-            });
-
-        }
 
     }]);
 
@@ -48,7 +45,7 @@
 
             if(form.$invalid) {
 
-                alert('invalid form');
+                alert('Form invalid, please try again.');
 
                 return false;
             }

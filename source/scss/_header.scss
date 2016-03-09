@@ -1,0 +1,98 @@
+header {
+    padding: 100px 50px;
+    text-align: center;
+    margin-top: -60px;
+    background: url('../images/headers/header-code-n-coffee.jpg') center center no-repeat;
+    background-size: cover;
+    min-height: 450px;
+    position: relative;
+    color: #fff;
+    text-align: center;
+
+    &:before {
+        content: '';
+        display: block;
+        @include position(absolute, 0px);
+        background: linear-gradient(-45deg, #1867B3, #4AD0E8);
+        opacity: 0.95;
+    }
+
+    > * {
+        position: relative;
+        z-index: 10;
+    }
+
+    h1 {
+        font: 5.2em $font-regular;
+        margin-bottom: 10px;
+        // text-transform: uppercase;
+    }
+
+    p {
+        font: 1.4em $font-regular;
+        color: #fff;
+        text-transform: uppercase;
+        margin-bottom: 30px;
+
+        strong {
+            font-weight: normal;
+            font-family: $font-bold;
+        }
+    }
+
+    &.dark {
+        background-image: url('../images/headers/header-home.jpg');
+
+        &:before {
+            background: rgba(66, 75, 84, 0.9);
+        }
+
+        .icon {
+            display: inline-block;
+            font-size: 140px;
+            margin-top: 40px;
+        }
+
+        h1 {
+            font-family: $font-light;
+        }
+
+        p {
+            text-transform: none;
+            font: 2em/24px $font-regular;
+            max-width: 500px;
+            display: inline-block;
+        }
+    }
+
+    .session-image {
+        display: inline-block;
+        font-size: 120px;
+        height: 120px;
+        color: #fff;
+    }
+}
+
+.sub-header {
+    height: 70px;
+    background: #fff;
+    margin-bottom: 60px;
+
+
+    dt {
+        font: 1.6em $font-semi;
+        color: $grey-dark;
+        text-transform: uppercase;
+        line-height: 70px;
+    }
+
+    dd {
+        margin: 15px 0px;
+
+        a {
+            padding: 0px 30px;
+        }
+    }
+
+
+}

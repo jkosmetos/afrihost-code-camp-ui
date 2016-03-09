@@ -1,0 +1,156 @@
+.section-holder {
+
+	&.white {
+		background: #fff;
+	}
+
+	.inner {
+		text-align: center;
+		max-width: 1100px;
+		margin: 0px auto;
+		padding: 80px 50px;
+		@include clearfix();
+	}
+
+	h2 {
+		font: 3.5em $font-regular;
+		margin-bottom: 0px;
+	}
+
+	p {
+		font-size: 2em;
+		line-height: 26px;
+		max-width: 610px;
+		margin: 10px auto 70px;
+	}
+
+	.workshop {
+		width: 490px;
+		float: left;
+		margin-bottom: 2%;
+		background: #fff;
+		min-height: 245px;
+		padding-left: 245px;
+		position: relative;
+
+		&:nth-of-type(2n) {
+			float: right;
+		}
+
+		.workshop-image {
+			@include position(absolute, 0px null 0px 0px);
+			background: linear-gradient(-45deg, #1867B3, #4AD0E8);
+			width: 50%;
+
+			&:before {
+				display: block;
+				@include position(absolute, 50% 0px null);
+				font-size: 180px;
+				text-align: center;
+				opacity: 0.1;
+				color: #fff;
+				margin-top: -90px;
+				height: 180px;
+			}
+
+			span {
+				font-size: 120px;
+				display: block;
+				text-align: center;
+				height: 120px;
+				@include position(absolute, 50% 0px null);
+				color: #fff;
+				margin-top: -60px;
+			}
+		}
+
+		dl {
+			padding: 20px;
+
+			.di {
+				font-size: 20px;
+				color: #A8ACB3;
+				margin-bottom: 30px;
+			}
+
+			dt {
+				font: 1.8em $font-bold;
+				color: $asphalt;
+				text-transform: uppercase;
+				max-width: 150px;
+				margin: 30px auto 0px;
+			}
+
+			dd {
+				font: 1.2em $font-semi;
+				color: #66645F;
+				text-transform: uppercase;
+				margin-bottom: 30px;
+			}
+		}
+	}
+}
+
+.big-quote {
+	background: url("../images/headers/quote-code.jpg") center center no-repeat;
+	background-size: cover;
+	height: 600px;
+	@include ghost();
+	text-align: center;
+
+	dl {
+
+		dt {
+			font: 3.5em $font-regular;
+			font-style: italic;
+			color: #66645F;
+		}
+
+		dd {
+			font: 1.8em $font-regular;
+			color: #8A9399;
+		}
+
+	}
+
+}
+
+.speaker {
+	float: left;
+	width: 25%;
+	display: block;
+	padding: 0px 10px;
+	margin-bottom: 20px;
+
+	.speaker-photo {
+		display: block;
+		width: 80%;
+		overflow: hidden;
+		margin: 0px auto 20px;
+		transition: all 0.2s ease;
+
+
+		img {
+			display: block;
+			filter: grayscale(100%) brightness(1.2);
+			opacity: 0.9;
+			border-radius: 50%;
+			transition: all 0.2s ease;
+		}
+
+		&:hover img {
+			opacity: 1;
+			filter:  grayscale(0%) brightness(1.2);
+		}
+	}
+
+	dt {
+		font: 1.8em $font-regular;
+		color: $blue;
+	}
+
+	dd {
+		font: 1.2em $font-regular;
+		text-transform: uppercase;
+	}
+}

@@ -1,0 +1,77 @@
+.sidebar {
+    @include position(absolute, 90px 0px 0px null);
+    width: 300px;
+    background: #fff;
+
+    .sidebar-icon {
+        text-align: center;
+        padding: 40px 20px;
+
+        dt {
+            font-size: 72px;
+            color: #e1e1e1;
+        }
+
+        dd {
+            font: 1.4em $font-regular;
+            display: none;
+        }
+
+
+    }
+
+    &.no-items {
+        padding-top: 10px;
+        text-align: center;
+
+        .sidebar-icon {
+            display: inline-block;
+            width: 98%;
+
+            dd {
+                display: inline-block;
+            }
+        }
+
+        .news-holder {
+            display: none;
+        }
+    }
+
+    .news-holder {
+        @include position(absolute, 140px 20px 0px 20px);
+        overflow: auto;
+    }
+
+    .news-item {
+        margin-bottom: 30px;
+        padding-bottom: 30px;
+        position: relative;
+
+        &:after {
+            content: '';
+            display: block;
+            height: 1px;
+            @include position(absolute, null 30px 0px)
+            background: #E6E6E6;
+        }
+
+        dt {
+            font: 1.8em $font-bold;
+            color: lighten($asphalt, 15);
+
+            span {
+                font: 0.6em $font-regular;
+                color: $grey-dark;
+                display: block;
+                text-transform: uppercase;
+                margin-bottom: 15px;
+            }
+        }
+
+        dd {
+            font: 1.3em/18px $font-regular;
+            color: $grey;
+        }
+    }
+}

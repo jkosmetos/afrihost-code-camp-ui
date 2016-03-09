@@ -1,0 +1,92 @@
+@mixin ghost(){
+	&:before {
+		content: '';
+		display: inline-block;
+		vertical-align: middle;
+		height: 100%;
+		//width: .1px;
+	}
+
+	> * {
+		display: inline-block;
+		vertical-align: middle;
+	}
+}
+
+@mixin clearfix {
+    &::after {
+        clear: both;
+        content: "";
+        display: table;
+    }
+}
+
+
+@mixin triangle($direction, $size: 6px, $color: #fff) {
+	content: '';
+	display: block;
+	position: absolute;
+	height: 0px;
+	width: 0px;
+	@if ($direction == 'up'){
+		border-bottom: $size solid $color;
+		border-left: 1/2*$size solid transparent;
+		border-right: 1/2*$size solid transparent;
+	}
+	@else if ($direction == 'down') {
+		border-top: $size*2/3 solid $color;
+		border-left: 1/2*$size solid transparent;
+		border-right: 1/2*$size solid transparent;
+	}
+	@else if ($direction == 'left') {
+		border-top: 1/2*$size solid transparent;
+		border-bottom: 1/2*$size solid transparent;
+		border-right: $size solid $color;
+	}
+	@else if ($direction == 'right') {
+		border-top: 1/2*$size solid transparent;
+		border-bottom: 1/2*$size solid transparent;
+		border-left: $size solid $color;
+	}
+}
+
+@mixin position($position: relative, $coordinates: null null null null) {
+
+	@if type-of($position) == list {
+		$coordinates: $position;
+		$position: relative;
+	}
+
+	$coordinates: unpack($coordinates);
+
+	$offsets: (
+		          top:    nth($coordinates, 1),
+		          right:  nth($coordinates, 2),
+		          bottom: nth($coordinates, 3),
+		          left:   nth($coordinates, 4)
+	          );
+
+	position: $position;
+
+	@each $offset, $value in $offsets {
+		@if is-length($value) {
+			#{$offset}: $value;
+		}
+	}
+}
+
+// Convert shorthand to the 4-value syntax
+@function unpack($shorthand) {
+	@if length($shorthand) == 1 {
+		@return nth($shorthand, 1) nth($shorthand, 1) nth($shorthand, 1) nth($shorthand, 1);
+	}
+	@else if length($shorthand) == 2 {
+		@return nth($shorthand, 1) nth($shorthand, 2) nth($shorthand, 1) nth($shorthand, 2);
+	}
+	@else if length($shorthand) == 3 {
+		@return nth($shorthand, 1) nth($shorthand, 2) nth($shorthand, 3) nth($shorthand, 2);
+	}
+	@else {
+		@return $shorthand;
+	}
+}

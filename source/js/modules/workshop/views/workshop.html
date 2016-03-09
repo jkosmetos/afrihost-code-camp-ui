@@ -1,0 +1,71 @@
+<header>
+    <h1>{{ workshop.title }}</h1>
+    <p><strong>{{ workshop.starts_at | amDateFormat:'DD MMM YYYY @ HH:mm' }}</strong> | {{
+        workshop.instructor.first_name }} {{ workshop.instructor.last_name }}</p>
+    <span class="session-image di" data-ng-class="workshop.icon_class"></span>
+</header>
+<div class="sub-header">
+    <dl class="wrapmeup">
+        <dt class="pull-left">RSVP For This Workshop</dt>
+        <dd class="pull-right">
+            <a href="#" class="btn primary">RSVP</a>
+        </dd>
+    </dl>
+</div><!-- end.sub-header -->
+
+<main class="wrapmeup">
+
+    <section class="white-box right-hero">
+        <div data-ng-bind-html="sce.trustAsHtml(workshop.description)"></div>
+    </section>
+
+    <!--<section class="white-box">-->
+    <!--<h4 class="pull-left blue">Workshop Sample Files</h4>-->
+    <!--<a href="#" class="link di di-icn-link pull-right" target="_blank">http://github.com/famous-dev-dude/getting_started</a>-->
+    <!--</section>-->
+
+    <section class="white-box right-hero">
+        <span class="hero di di-icn-converation"></span>
+        <h4 class="blue">Got Questions? Start a conversation.</h4>
+        <p>If you have any questions around this workshop feel free to start a conversation! We’ll answer as soon as we can.</p>
+        <form name="comment_form" novalidate>
+
+            <textarea name="comment" data-ng-model="commentForm.comment" data-ng-minlength="10" required></textarea>
+
+            <a type="button" class="btn primary" data-ng-class="{ 'loading': sending }" data-ng-click="addComment(comment_form)" data-ng-disabled="comment_form.$invalid">Add Comment</a>
+
+        </form>
+    </section>
+
+    <section class="white-box" data-ng-if="workshop.comments.length > 0">
+
+        <div class="question-holder" data-ng-repeat="comment in workshop.comments">
+            <dl class="question">
+                <dt>{{ comment.body }}</dt>
+                <dd>{{ comment.author.first_name }} {{ comment.author.last_name }} | {{ comment.created_at |
+                    amDateFormat: 'DD MMM YYYY HH:mm' }}
+                </dd>
+            </dl><!-- end.question -->
+
+            <form name="reply_form" data-ng-if="user.roles.indexOf('ROLE_LECTURER') >= 0" novalidate>
+
+                <textarea name="comment" data-ng-model="replyForm.comment" data-ng-minlength="10" required></textarea>
+
+                <a type="button" class="btn primary" data-ng-class="{ 'loading': sending }" data-ng-click="addReply(reply_form)" data-ng-disabled="reply_form.$invalid">Reply</a>
+
+            </form>
+
+            <!--<div class="answer">-->
+            <!--<h6>Reply From Speaker Dude:</h6>-->
+            <!--<p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae onec velit-->
+            <!--neque.</p>-->
+            <!--<p>Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Cras ultricies ligula sed-->
+            <!--magna dictum porta. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Mauris-->
+            <!--blandit aliquet elit, eget tincidunt nibh pulvinar.</p>-->
+            <!--</div>&lt;!&ndash; end.answer &ndash;&gt;-->
+
+        </div><!-- end.question-holder -->
+
+    </section>
+
+</main>

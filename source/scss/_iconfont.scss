@@ -1,0 +1,51 @@
+@font-face {
+    font-family: "DevIcons";
+    src: url('../fonts/DevIcons.eot');
+    src: url('../fonts/DevIcons.eot?#iefix') format('eot'),
+    url('../fonts/DevIcons.woff') format('woff'),
+    url('../fonts/DevIcons.ttf') format('truetype'),
+    url('../fonts/DevIcons.svg#DevIcons') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.di:before {
+    display: inline-block;
+    font-family: "DevIcons";
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+ }
+
+.di-lg {
+    font-size: 1.3333333333333333em;
+    line-height: 0.75em;
+    vertical-align: -15%;
+}
+
+.di-2x { font-size: 2em; }
+.di-3x { font-size: 3em; }
+.di-4x { font-size: 4em; }
+.di-5x { font-size: 5em; }
+.di-fw {
+    width: 1.2857142857142858em;
+    text-align: center;
+}
+
+.di-icn-calendar:before { content: "\E001" }
+.di-icn-code:before { content: "\E002" }
+.di-icn-converation:before { content: "\E003" }
+.di-icn-link:before { content: "\E004" }
+.di-icn-logo:before { content: "\E005" }
+.di-icn-news:before { content: "\E006" }
+.di-icn-session-api:before { content: "\E007" }
+.di-icn-session-database-design:before { content: "\E008" }
+.di-icn-session-environment-setup:before { content: "\E009" }
+.di-icn-session-front-end:before { content: "\E00A" }
+.di-icn-session-gotchas:before { content: "\E00B" }
+.di-icn-session-problem-solving:before { content: "\E00C" }
+.di-icn-session-sass:before { content: "\E00D" }
+.di-icn-session-security:before { content: "\E00E" }
+.di-icn-session-web-development:before { content: "\E00F" }

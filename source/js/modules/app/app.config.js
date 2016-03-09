@@ -3,8 +3,14 @@
 
     var appConfig = angular.module('app.config', ['app.controller', 'app.factory']);
 
-    appConfig.run(['$rootScope', function ($rootScope) {
-        // Once the app gets run, do stuff... nothing to do just yet
+    appConfig.run(['$rootScope', '$state', '$stateParams', function ($rootScope, $state, $stateParams) {
+
+        // TODO this needs to be fixed, some weird shit is happening
+        //$rootScope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState, fromParams) {
+        //    $state.fromState = fromState;
+        //    $state.fromParams = fromParams;
+        //});
+
     }]);
 
     appConfig.config(['$stateProvider', '$urlRouterProvider', '$httpProvider', '$localForageProvider', 'CONFIG', function ($stateProvider, $urlRouterProvider, $httpProvider, $localForageProvider, CONFIG) {
@@ -22,14 +28,14 @@
         //////////////////////////////////////////////////////
         //                   HTTP config                    //
         //////////////////////////////////////////////////////
-        $httpProvider.defaults.headers.common.Authorization = 'Bearer null';
+        //$httpProvider.defaults.headers.common.Authorization = 'Bearer null'; // this breaks stuff because it's adding the Auth header where it isn't needed, which triggers a authentication request
         $httpProvider.interceptors.push('HttpInterceptor');
 
         $urlRouterProvider.otherwise('/');
 
         $stateProvider
 
-            .state('app', {
+        .state('app', {
                 abstract: true,
                 templateUrl: CONFIG.base_url + '/app/views/main.html',
                 controller: 'AppController',
@@ -42,10 +48,18 @@
 
             .state('app.home', {
                 url: '/',
+                resolve: {
+                    workshops: ['WorkshopFactory', function(WorkshopFactory){
+                        return WorkshopFactory.getWorkshops();
+                    }]
+                },
                 views: {
                     'main@app': {
                         templateUrl: CONFIG.base_url + '/app/views/home.html',
                         controller: 'HomeController'
+                    },
+                    'nav@app': {
+                        template: '<nav class="stripey"></nav>'
                     }
                 }
             });
@@ -56,7 +70,7 @@
     appConfig.constant('CONFIG', {
         dev_mode: 0,
         base_url: 'js/modules',
-        api_url: 'http://api.afrihostcodecamp.com'
+        api_url: 'http://localhost:8000'
     });
 
 })();
