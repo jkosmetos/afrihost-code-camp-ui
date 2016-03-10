@@ -71,6 +71,7 @@
         dev_mode: 0,
         base_url: 'js/modules',
         api_url: 'http://api.afrihostcodecamp.com'
+        //api_url: 'http://localhost:8000'
     });
 
 })();

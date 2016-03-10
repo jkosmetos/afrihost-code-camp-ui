@@ -25,7 +25,6 @@
 
         // Nothing to do just yet
         $scope.workshops = workshops;
-        console.log(workshops);
 
     }]);
 

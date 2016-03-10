@@ -7,7 +7,7 @@
             </dl>
             <h3>{{ workshop.title }}</h3>
             <dl class="session-speaker">
-                <span class="speaker-photo"><img data-ng-src="images/speakers/{{workshop.instructor.first_name}}.jpg" /></span>
+                <span class="speaker-photo"><img data-ng-src="images/speakers/{{ workshop.instructor.first_name | lowercase }}.jpg" /></span>
                 <dt>{{ workshop.instructor.first_name }} {{ workshop.instructor.last_name }}</dt>
                 <dd>Software Developer | Dev Team</dd>
             </dl>

@@ -54048,6 +54048,7 @@ angular.module('ui.router.state')
         dev_mode: 0,
         base_url: 'js/modules',
         api_url: 'http://api.afrihostcodecamp.com'
+        //api_url: 'http://localhost:8000'
     });
 
 })();
@@ -54079,7 +54080,6 @@ angular.module('ui.router.state')
 
         // Nothing to do just yet
         $scope.workshops = workshops;
-        console.log(workshops);
 
     }]);
 
@@ -54206,10 +54206,8 @@ angular.module('ui.router.state')
             AuthFactory.login($scope.loginForm).then(function(data){
 
                 if(data.hasOwnProperty('token')) {
+
                     // save the User object
-
-                    console.log('Submitted: ', data);
-
                     // TODO store 'remember me' and make it function correctly
                     UserFactory.create($scope.loginForm._username, $scope.loginForm._password, data.user.roles, false, data.token).then(function(){
 
@@ -54465,9 +54463,6 @@ angular.module('ui.router.state')
     var workshopController = angular.module('workshop.controller', []);
 
     workshopController.controller('WorkshopsController', ['$state', '$scope', '$sce', 'moment', 'workshops', 'newsItems', function ($state, $scope, $sce, moment, workshops, newsItems) {
-
-        console.log(workshops);
-        console.log(newsItems);
 
         $scope.sce = $sce;
         $scope.workshops = workshops;

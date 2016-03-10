@@ -19,10 +19,8 @@
             AuthFactory.login($scope.loginForm).then(function(data){
 
                 if(data.hasOwnProperty('token')) {
+
                     // save the User object
-
-                    console.log('Submitted: ', data);
-
                     // TODO store 'remember me' and make it function correctly
                     UserFactory.create($scope.loginForm._username, $scope.loginForm._password, data.user.roles, false, data.token).then(function(){
 

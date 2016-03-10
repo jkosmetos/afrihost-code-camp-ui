@@ -5,9 +5,6 @@
 
     workshopController.controller('WorkshopsController', ['$state', '$scope', '$sce', 'moment', 'workshops', 'newsItems', function ($state, $scope, $sce, moment, workshops, newsItems) {
 
-        console.log(workshops);
-        console.log(newsItems);
-
         $scope.sce = $sce;
         $scope.workshops = workshops;
         $scope.newsItems = newsItems;
