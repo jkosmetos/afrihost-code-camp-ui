@@ -1,0 +1,33 @@
+<main class="skinny">
+    <div class="session-holder white-box" data-ng-repeat="workshop in workshops">
+        <div class="session" data-ng-class="{ 'past': moment(workshop.starts_at).isBefore() }">
+            <dl class="session-date di di-icn-calendar">
+                <dt>{{ (workshop.starts_at | amDateFormat:'DD') || "&nbsp;" }}</dt>
+                <dd>{{ (workshop.starts_at | amDateFormat:'MMM') || "TBA" }}</dd>
+            </dl>
+            <h3>{{ workshop.title }}</h3>
+            <dl class="session-speaker">
+                <span class="speaker-photo"><img data-ng-src="images/speakers/{{workshop.instructor.first_name}}.jpg" /></span>
+                <dt>{{ workshop.instructor.first_name }} {{ workshop.instructor.last_name }}</dt>
+                <dd>Software Developer | Dev Team</dd>
+            </dl>
+            <p data-ng-if="moment(workshop.starts_at).isBefore()">This session is in the past but be sure to click the more info button below to view any content added to the session for you to check out!</p>
+            <p data-ng-if="!moment(workshop.starts_at).isBefore()">{{ workshop.excerpt }}</p>
+            <button class="btn primary ghost" type="button" data-ui-sref="app.workshop({ id: workshop.id })">More Info</button>
+        </div><!-- end.session -->
+
+    </div><!-- end.session-holder -->
+</main>
+
+<aside class="sidebar" data-ng-class="{ 'no-items': newsItems.length <= 0 }"><!-- if no items add .no-items class here -->
+    <dl class="sidebar-icon">
+        <dt class="di di-icn-news"></dt>
+        <dd>Uhm.. Looks like there's no news yet. Check back soon though!</dd>
+    </dl>
+    <div class="news-holder">
+        <dl class="news-item" data-ng-repeat="newsItem in newsItems">
+            <dt>{{ newsItem.title }} <span class="item-date">{{ newsItem.created_at | amDateFormat: 'DD MMMM YYYY' }}</span></dt>
+            <dd data-ng-bind-html="sce.trustAsHtml(newsItem.body)"></dd>
+        </dl>
+    </div>
+</aside>

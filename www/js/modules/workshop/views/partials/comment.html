@@ -1,0 +1,7 @@
+<form name="form" novalidate>
+
+    <textarea name="comment" data-ng-model="commentForm.comment" data-ng-minlength="10" required></textarea>
+
+    <button type="button" class="btn primary" data-ng-class="{ 'loading': sending }" data-ng-click="addComment(form)" data-ng-disabled="form.$invalid">Add Comment</button>
+
+</form>
