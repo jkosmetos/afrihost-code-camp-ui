@@ -10,8 +10,6 @@
 
         self.create = function (username, password, roles, remember, token) {
 
-            console.log('TEH ROLES!', roles);
-
             var user = {
                 username: username,
                 password: ( remember ? password : '' ),

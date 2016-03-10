@@ -1,18 +1,19 @@
 <main class="skinny">
     <div class="session-holder white-box" data-ng-repeat="workshop in workshops">
-        <div class="session">
+        <div class="session" data-ng-class="{ 'past': moment(workshop.starts_at).isBefore() }">
             <dl class="session-date di di-icn-calendar">
-                <dt>{{ workshop.starts_at | amDateFormat:'DD' }}</dt>
-                <dd>{{ workshop.starts_at | amDateFormat:'MMM' }}</dd>
+                <dt>{{ (workshop.starts_at | amDateFormat:'DD') || "&nbsp;" }}</dt>
+                <dd>{{ (workshop.starts_at | amDateFormat:'MMM') || "TBA" }}</dd>
             </dl>
             <h3>{{ workshop.title }}</h3>
             <dl class="session-speaker">
-                <span class="speaker-photo"><img src="images/speakers/{{workshop.instructor.first_name}}.jpg" /></span>
+                <span class="speaker-photo"><img data-ng-src="images/speakers/{{workshop.instructor.first_name}}.jpg" /></span>
                 <dt>{{ workshop.instructor.first_name }} {{ workshop.instructor.last_name }}</dt>
                 <dd>Software Developer | Dev Team</dd>
             </dl>
-            <p>{{ workshop.excerpt }}</p>
-            <a href="#"  data-ui-sref="app.workshop({ id: workshop.id })" class="btn primary ghost">More Info</a>
+            <p data-ng-if="moment(workshop.starts_at).isBefore()">This session is in the past but be sure to click the more info button below to view any content added to the session for you to check out!</p>
+            <p data-ng-if="!moment(workshop.starts_at).isBefore()">{{ workshop.excerpt }}</p>
+            <button class="btn primary ghost" type="button" data-ui-sref="app.workshop({ id: workshop.id })">More Info</button>
         </div><!-- end.session -->
 
     </div><!-- end.session-holder -->

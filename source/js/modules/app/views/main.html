@@ -1,8 +1,8 @@
 <ui-view name="nav">
     <nav>
         <a class="pull-left logo di di-icn-logo" href="#" data-ui-sref="app.home"></a>
-        <a data-ng-if="!user" class="pull-right logout btn ghost white" href="#" data-ui-sref="app.login">Login</a>
-        <a data-ng-if="user" class="pull-right logout btn ghost white" data-ng-click="logout()">Logout</a>
+        <button type="button" class="pull-right logout btn ghost white" data-ng-if="!user" data-ui-sref="app.login">Login</button>
+        <button type="button" class="pull-right logout btn ghost white" data-ng-if="user" data-ng-click="logout()">Logout</button>
     </nav>
 </ui-view>
 <ui-view name="main"></ui-view>

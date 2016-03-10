@@ -3,7 +3,7 @@
 
     var workshopController = angular.module('workshop.controller', []);
 
-    workshopController.controller('WorkshopsController', ['$state', '$scope', '$sce', 'workshops', 'newsItems', function ($state, $scope, $sce, workshops, newsItems) {
+    workshopController.controller('WorkshopsController', ['$state', '$scope', '$sce', 'moment', 'workshops', 'newsItems', function ($state, $scope, $sce, moment, workshops, newsItems) {
 
         console.log(workshops);
         console.log(newsItems);
@@ -11,69 +11,47 @@
         $scope.sce = $sce;
         $scope.workshops = workshops;
         $scope.newsItems = newsItems;
+        $scope.moment = moment;
 
     }]);
 
-    workshopController.controller('WorkshopController', ['$state', '$scope', '$sce', 'WorkshopFactory', 'workshop', function ($state, $scope, $sce, WorkshopFactory, workshop) {
-
-        console.log(workshop);
+    workshopController.controller('WorkshopController', ['$state', '$scope', '$sce', 'moment', 'WorkshopFactory', 'workshop', 'user', function ($state, $scope, $sce, moment, WorkshopFactory, workshop, user) {
 
         $scope.sce = $sce;
+        $scope.moment = moment;
         $scope.workshop = workshop;
-        $scope.sending = false;
 
-        $scope.commentForm = {
-            workshop_id: workshop.id
-        };
+        $scope.rsvp = function () {
 
-        $scope.replyForm = {
-            workshop_id: workshop.id
-        };
+            WorkshopFactory.rsvp({ workshop_id: workshop.id }).then(function(data){
 
-        $scope.addComment = function (form) {
+                if(data.workshop) {
 
-            if(form.$invalid) {
+                    $scope.workshop.students.push(data.user);
 
-                alert('Form invalid, please try again.');
+                } else {
 
-                return false;
-            }
+                    _.remove($scope.workshop.students, { username: data.user.username });
 
-            $scope.sending = true;
-
-            WorkshopFactory.addComment($scope.commentForm).then(function(data){
-
-                $scope.workshop.comments.push(data);
-                $scope.commentForm.comment = '';
-                $scope.sending = false;
+                }
 
             });
 
-            return false;
-
         };
 
-        $scope.addReply = function (form) {
+        $scope.hasRsvpd = function (user) {
 
-            if(form.$invalid) {
+            var val = false;
 
-                alert('Form invalid, please try again.');
+            _.each($scope.workshop.students, function (student, index) {
 
-                return false;
-            }
-
-            $scope.sending = true;
-
-            WorkshopFactory.addComment($scope.replyForm).then(function(data){
-
-                $scope.workshop.comments.push(data);
-                $scope.commentForm.comment = '';
-                $scope.sending = false;
+                if (student.username === user.username) {
+                    val = true;
+                }
 
             });
 
-            return false;
-
+            return val;
         }
 
     }]);

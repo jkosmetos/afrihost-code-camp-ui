@@ -16,7 +16,7 @@
             <dl>
                 <span class="di" data-ng-class="workshop.icon_class"></span>
                 <dt>{{ workshop.title }}</dt>
-                <dd>{{ workshop.starts_at | amDateFormat: 'DD MMM YYYY' }}</dd>
+                <dd>{{ (workshop.starts_at | amDateFormat: 'DD MMM YYYY') || "TBA" }}</dd>
                 <a href="#" class="btn primary" data-ui-sref="app.workshops">View More</a>
             </dl>
         </div><!-- end.workshop -->
@@ -38,42 +38,42 @@
         <p>Learn from Afrihost's very own developer team. Each speaker will be covering different topics in the big process.</p>
 
         <dl class="speaker">
-            <span class="speaker-photo"><img src="images/speakers/sacheen.jpg" /></span>
+            <span class="speaker-photo"><img data-ng-src="images/speakers/sacheen.jpg" /></span>
             <dt>Sacheen Dhanjie</dt>
             <dd>Dev Team</dd>
         </dl>
         <dl class="speaker">
-            <span class="speaker-photo"><img src="images/speakers/john.jpg" /></span>
+            <span class="speaker-photo"><img data-ng-src="images/speakers/john.jpg" /></span>
             <dt>John Kosmetos</dt>
             <dd>Dev Team</dd>
         </dl>
         <dl class="speaker">
-            <span class="speaker-photo"><img src="images/speakers/sarel.jpg" /></span>
+            <span class="speaker-photo"><img data-ng-src="images/speakers/sarel.jpg" /></span>
             <dt>Sarel Van Der Walt</dt>
             <dd>Dev Team</dd>
         </dl>
         <dl class="speaker">
-            <span class="speaker-photo"><img src="images/speakers/johnathan.jpg" /></span>
+            <span class="speaker-photo"><img data-ng-src="images/speakers/johnathan.jpg" /></span>
             <dt>Johnathan Dell</dt>
             <dd>Dev Team</dd>
         </dl>
         <dl class="speaker">
-            <span class="speaker-photo"><img src="images/speakers/brad.jpg" /></span>
+            <span class="speaker-photo"><img data-ng-src="images/speakers/brad.jpg" /></span>
             <dt>Brad Mostert</dt>
             <dd>Dev Team</dd>
         </dl>
         <dl class="speaker">
-            <span class="speaker-photo"><img src="images/speakers/gavin.jpg" /></span>
+            <span class="speaker-photo"><img data-ng-src="images/speakers/gavin.jpg" /></span>
             <dt>Gavin McLeland</dt>
             <dd>Brand Team</dd>
         </dl>
         <dl class="speaker">
-            <span class="speaker-photo"><img src="images/speakers/lee.jpg" /></span>
+            <span class="speaker-photo"><img data-ng-src="images/speakers/lee.jpg" /></span>
             <dt>Lee Pelser</dt>
             <dd>Dev Team</dd>
         </dl>
         <dl class="speaker">
-            <span class="speaker-photo"><img src="images/speakers/dale.jpg" /></span>
+            <span class="speaker-photo"><img data-ng-src="images/speakers/dale.jpg" /></span>
             <dt>Dale Attree</dt>
             <dd>Dev Team</dd>
         </dl>

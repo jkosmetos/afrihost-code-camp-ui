@@ -26,7 +26,9 @@
                     // TODO store 'remember me' and make it function correctly
                     UserFactory.create($scope.loginForm._username, $scope.loginForm._password, data.user.roles, false, data.token).then(function(){
 
-                        $state.go('app.home');
+                        // TODO redo the user factory to have properly bound access to the user object, until then, refresh the oage to dislpay the correct login / logout value
+                        //$state.go('app.home');
+                        window.location = '/';
 
                     });
 

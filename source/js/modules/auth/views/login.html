@@ -3,7 +3,7 @@
     <form id="form-login" name="form" novalidate>
 
         <div class="form-inner">
-            <a href="#" data-ui-sref="app.home" class="logo di di-icn-logo"></a>
+            <a href="#" type="button" data-ui-sref="app.home" class="logo di di-icn-logo"></a>
             <p>Login</p>
             <label>
                 <input type="text" name="_username" id="_username" placeholder="Username" data-ng-model="loginForm._username" />
@@ -16,9 +16,9 @@
 
             <div class="form-actions">
                 <!--<a href="#" class="pull-left texty">Forgot Password</a>-->
-                <a href="#" class="pull-right btn" data-ng-click="login(form)">Login</a>
+                <button type="button" class="pull-right btn" data-ng-click="login(form)">Login</button>
             </div>
-            <p class="message error">Invalid Email/Password Combination</p>
+            <p class="message error" data-ng-show="form.$invalid">Invalid Email/Password Combination</p>
         </div><!-- end.form-inner -->
 
     </form>

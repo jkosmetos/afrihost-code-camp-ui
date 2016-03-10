@@ -1,7 +1,7 @@
 (function () {
     'use strict';
 
-    var workshopConfig = angular.module('workshop.config', ['workshop.controller', 'workshop.factory']);
+    var workshopConfig = angular.module('workshop.config', ['workshop.controller', 'workshop.factory', 'workshop.directive']);
 
     workshopConfig.config(['CONFIG', '$stateProvider', function (CONFIG, $stateProvider) {
 

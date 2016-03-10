@@ -11,6 +11,7 @@
 
             AuthFactory.logout().then(function() {
 
+                $scope.user = null;
                 // do some stuff
                 $state.go('app.home');
 

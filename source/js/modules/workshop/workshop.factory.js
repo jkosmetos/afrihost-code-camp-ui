@@ -71,6 +71,23 @@
 
         };
 
+        self.rsvp = function (data) {
+
+            var url = CONFIG.api_url + '/api/user/rsvp';
+
+            return $http({
+                url: url,
+                method: 'POST',
+                cache: false,
+                data: data
+            }).then(function(data){
+
+                return data.data;
+
+            });
+
+        };
+
         return self;
 
     }]);
