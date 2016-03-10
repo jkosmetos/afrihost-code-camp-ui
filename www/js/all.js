@@ -54047,7 +54047,7 @@ angular.module('ui.router.state')
     appConfig.constant('CONFIG', {
         dev_mode: 0,
         base_url: 'js/modules',
-        api_url: 'http://localhost:8000'
+        api_url: 'http://api.afrihostcodecamp.com'
     });
 
 })();
