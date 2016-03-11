@@ -8,6 +8,7 @@
     transition: all 0.2s ease;
     border-radius: 20px;
     text-transform: uppercase;
+    outline: none;
 
     &.primary   { background: $blue; }
     &.white     { background: #fff; color: $blue; }

@@ -54051,6 +54051,11 @@ angular.module('ui.router.state')
         //api_url: 'http://localhost:8000'
     });
 
+    // Moment constants
+    appConfig.constant('angularMomentConfig', {
+        timezone: 'Africa/Johannesburg'
+    });
+
 })();
 
 (function () {

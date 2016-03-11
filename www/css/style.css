@@ -381,7 +381,8 @@ li {
   -webkit-transition: all 0.2s ease;
   transition: all 0.2s ease;
   border-radius: 20px;
-  text-transform: uppercase; }
+  text-transform: uppercase;
+  outline: none; }
   .btn.primary {
     background: #2E95CA; }
   .btn.white {
