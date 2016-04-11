@@ -1,2 +1,5 @@
 # Afrihost Code Camp UI
-All the front endy stuff
+
+###NOTE: This project is actively being developed, and will be undergoing a plethora of changes and refinements. 
+
+AngularJS based front end for the Afrihost Code Camp site. 
